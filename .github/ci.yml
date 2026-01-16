@@ -1,0 +1,29 @@
+#name
+#trigger
+#job
+#steps
+#uses
+#with
+#run
+#env
+
+name: CI react app;
+on:
+  push:
+    run-test:
+    runs-on: ubuntu-latest;
+    steps:
+    - name: code checkout;
+      uses: actions/checkout@v4;
+
+    - name: install dependencies;
+      run: npm install;
+      
+    - name: run tests;
+      run: npm test;  
+
+    - name: use nodejs;
+      uses: actions/setup-node@v4;
+
+      with:
+      node-version: 18
